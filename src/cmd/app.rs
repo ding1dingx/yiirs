@@ -5,7 +5,7 @@ use tera::Context;
 use crate::internal::{self, App, AppMode};
 
 pub const TEMPLATE: &str = r#"
-🍺 App创建完成！请将以下配置加到Cargo.toml中：
+🍺 App创建完成！请将以下配置添加到Cargo.toml中：
 {% for app in apps %}
 [[bin]]
 name = "{{ app.name }}"
