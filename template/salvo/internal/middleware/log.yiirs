@@ -9,8 +9,9 @@ use salvo::{
     Depot, FlowCtrl, Handler, Request, Response,
 };
 use serde_json::Value;
+use yiirs_contrib::xtime;
 
-use crate::{result::code::Code, util::xtime};
+use crate::result::code::Code;
 
 const MAX_BODY_LOG_SIZE: u64 = 20 << 10; // 20KB
 

@@ -1,11 +1,10 @@
 [package]
 name = "yiirs"
-version = "1.0.1"
-authors = ["ShengHui <847713844@qq.com>"]
+version = "1.0.2"
 edition = "2021"
-description = "Rust API development scaffolding, support salvo and axum."
+description = "Rust web development scaffolding, support salvo and axum."
 license = "Apache-2.0"
-repository = "https://github.com/shenghui0779/yiirs"
+repository = "https://github.com/yiirs/yiirs"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 

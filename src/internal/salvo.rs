@@ -8,16 +8,16 @@ pub fn global() -> Tera {
     tera.add_raw_templates(vec![
         (
             "Cargo.toml",
-            include_str!("../../template/salvo/Cargo.tera"),
+            include_str!("../../template/salvo/Cargo.yiirs"),
         ),
         (
             ".dockerignore",
-            include_str!("../../template/dockerignore.tera"),
+            include_str!("../../template/dockerignore.yiirs"),
         ),
-        (".gitignore", include_str!("../../template/gitignore.tera")),
+        (".gitignore", include_str!("../../template/gitignore.yiirs")),
         (
             "README.md",
-            include_str!("../../template/salvo/README.tera"),
+            include_str!("../../template/salvo/README.yiirs"),
         ),
     ])
     .unwrap();
@@ -29,7 +29,7 @@ pub fn docker() -> Tera {
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![(
         "Dockerfile",
-        include_str!("../../template/Dockerfile.tera"),
+        include_str!("../../template/Dockerfile.yiirs"),
     )])
     .unwrap();
     tera
@@ -39,8 +39,8 @@ pub fn other() -> Tera {
     let mut tera = Tera::default();
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![
-        ("dockerun.sh", include_str!("../../template/dockerun.tera")),
-        ("config.toml", include_str!("../../template/config.tera")),
+        ("dockerun.sh", include_str!("../../template/dockerun.yiirs")),
+        ("config.toml", include_str!("../../template/config.yiirs")),
     ])
     .unwrap();
     tera
@@ -53,96 +53,71 @@ pub fn internal() -> Tera {
         // lib.rs
         (
             "lib.rs",
-            include_str!("../../template/salvo/internal/lib.tera"),
+            include_str!("../../template/salvo/internal/lib.yiirs"),
         ),
         // core
         (
             "core/mod.rs",
-            include_str!("../../template/salvo/internal/core/mod.tera"),
+            include_str!("../../template/salvo/internal/core/mod.yiirs"),
         ),
         (
             "core/cache.rs",
-            include_str!("../../template/salvo/internal/core/cache.tera"),
+            include_str!("../../template/salvo/internal/core/cache.yiirs"),
         ),
         (
             "core/config.rs",
-            include_str!("../../template/salvo/internal/core/config.tera"),
+            include_str!("../../template/salvo/internal/core/config.yiirs"),
         ),
         (
             "core/db.rs",
-            include_str!("../../template/salvo/internal/core/db.tera"),
+            include_str!("../../template/salvo/internal/core/db.yiirs"),
         ),
         (
             "core/logger.rs",
-            include_str!("../../template/salvo/internal/core/logger.tera"),
-        ),
-        (
-            "core/manager.rs",
-            include_str!("../../template/salvo/internal/core/manager.tera"),
-        ),
-        // crypto
-        (
-            "crypto/mod.rs",
-            include_str!("../../template/salvo/internal/crypto/mod.tera"),
-        ),
-        (
-            "crypto/aes.rs",
-            include_str!("../../template/salvo/internal/crypto/aes.tera"),
-        ),
-        (
-            "crypto/hash.rs",
-            include_str!("../../template/salvo/internal/crypto/hash.tera"),
+            include_str!("../../template/salvo/internal/core/logger.yiirs"),
         ),
         // middleware
         (
             "middleware/mod.rs",
-            include_str!("../../template/salvo/internal/middleware/mod.tera"),
+            include_str!("../../template/salvo/internal/middleware/mod.yiirs"),
         ),
         (
             "middleware/catch_panic.rs",
-            include_str!("../../template/salvo/internal/middleware/catch_panic.tera"),
+            include_str!("../../template/salvo/internal/middleware/catch_panic.yiirs"),
         ),
         (
             "middleware/log.rs",
-            include_str!("../../template/salvo/internal/middleware/log.tera"),
+            include_str!("../../template/salvo/internal/middleware/log.yiirs"),
         ),
         (
             "middleware/trace.rs",
-            include_str!("../../template/salvo/internal/middleware/trace.tera"),
+            include_str!("../../template/salvo/internal/middleware/trace.yiirs"),
         ),
         // result
         (
             "result/mod.rs",
-            include_str!("../../template/salvo/internal/result/mod.tera"),
+            include_str!("../../template/salvo/internal/result/mod.yiirs"),
         ),
         (
             "result/code.rs",
-            include_str!("../../template/salvo/internal/result/code.tera"),
+            include_str!("../../template/salvo/internal/result/code.yiirs"),
         ),
         (
             "result/reply.rs",
-            include_str!("../../template/salvo/internal/result/reply.tera"),
+            include_str!("../../template/salvo/internal/result/reply.yiirs"),
         ),
         // util
         (
             "util/mod.rs",
-            include_str!("../../template/salvo/internal/util/mod.tera"),
+            include_str!("../../template/salvo/internal/util/mod.yiirs"),
         ),
         (
             "util/helper.rs",
-            include_str!("../../template/salvo/internal/util/helper.tera"),
+            include_str!("../../template/salvo/internal/util/helper.yiirs"),
         ),
         (
             "util/identity.rs",
-            include_str!("../../template/salvo/internal/util/identity.tera"),
-        ),
-        (
-            "util/mutex.rs",
-            include_str!("../../template/salvo/internal/util/mutex.tera"),
-        ),
-        (
-            "util/xtime.rs",
-            include_str!("../../template/salvo/internal/util/xtime.tera"),
+            include_str!("../../template/salvo/internal/util/identity.yiirs"),
         ),
     ])
     .unwrap();
@@ -156,56 +131,56 @@ pub fn app() -> Tera {
         // main.rs
         (
             "main.rs",
-            include_str!("../../template/salvo/app/main.tera"),
+            include_str!("../../template/salvo/app/main.yiirs"),
         ),
         // api
         (
             "api/mod.rs",
-            include_str!("../../template/salvo/app/api/mod.tera"),
+            include_str!("../../template/salvo/app/api/mod.yiirs"),
         ),
         (
             "api/greeter.rs",
-            include_str!("../../template/salvo/app/api/greeter.tera"),
+            include_str!("../../template/salvo/app/api/greeter.yiirs"),
         ),
         // cmd
         (
             "cmd/mod.rs",
-            include_str!("../../template/salvo/app/cmd/mod.tera"),
+            include_str!("../../template/salvo/app/cmd/mod.yiirs"),
         ),
         (
             "cmd/hello.rs",
-            include_str!("../../template/salvo/app/cmd/hello.tera"),
+            include_str!("../../template/salvo/app/cmd/hello.yiirs"),
         ),
         (
             "cmd/serve.rs",
-            include_str!("../../template/salvo/app/cmd/serve.tera"),
+            include_str!("../../template/salvo/app/cmd/serve.yiirs"),
         ),
         // middleware
         (
             "middleware/mod.rs",
-            include_str!("../../template/salvo/app/middleware/mod.tera"),
+            include_str!("../../template/salvo/app/middleware/mod.yiirs"),
         ),
         (
             "middleware/auth.rs",
-            include_str!("../../template/salvo/app/middleware/auth.tera"),
+            include_str!("../../template/salvo/app/middleware/auth.yiirs"),
         ),
         // router
         (
             "router/mod.rs",
-            include_str!("../../template/salvo/app/router/mod.tera"),
+            include_str!("../../template/salvo/app/router/mod.yiirs"),
         ),
         (
             "router/route.rs",
-            include_str!("../../template/salvo/app/router/route.tera"),
+            include_str!("../../template/salvo/app/router/route.yiirs"),
         ),
         // service
         (
             "service/mod.rs",
-            include_str!("../../template/salvo/app/service/mod.tera"),
+            include_str!("../../template/salvo/app/service/mod.yiirs"),
         ),
         (
             "service/greeter.rs",
-            include_str!("../../template/salvo/app/service/greeter.tera"),
+            include_str!("../../template/salvo/app/service/greeter.yiirs"),
         ),
     ])
     .unwrap();

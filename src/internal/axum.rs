@@ -6,13 +6,19 @@ pub fn global() -> Tera {
     let mut tera = Tera::default();
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![
-        ("Cargo.toml", include_str!("../../template/axum/Cargo.tera")),
+        (
+            "Cargo.toml",
+            include_str!("../../template/axum/Cargo.yiirs"),
+        ),
         (
             ".dockerignore",
-            include_str!("../../template/dockerignore.tera"),
+            include_str!("../../template/dockerignore.yiirs"),
         ),
-        (".gitignore", include_str!("../../template/gitignore.tera")),
-        ("README.md", include_str!("../../template/axum/README.tera")),
+        (".gitignore", include_str!("../../template/gitignore.yiirs")),
+        (
+            "README.md",
+            include_str!("../../template/axum/README.yiirs"),
+        ),
     ])
     .unwrap();
     tera
@@ -23,7 +29,7 @@ pub fn docker() -> Tera {
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![(
         "Dockerfile",
-        include_str!("../../template/Dockerfile.tera"),
+        include_str!("../../template/Dockerfile.yiirs"),
     )])
     .unwrap();
     tera
@@ -33,8 +39,8 @@ pub fn other() -> Tera {
     let mut tera = Tera::default();
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![
-        ("dockerun.sh", include_str!("../../template/dockerun.tera")),
-        ("config.toml", include_str!("../../template/config.tera")),
+        ("dockerun.sh", include_str!("../../template/dockerun.yiirs")),
+        ("config.toml", include_str!("../../template/config.yiirs")),
     ])
     .unwrap();
     tera
@@ -47,100 +53,75 @@ pub fn internal() -> Tera {
         // lib.rs
         (
             "lib.rs",
-            include_str!("../../template/axum/internal/lib.tera"),
+            include_str!("../../template/axum/internal/lib.yiirs"),
         ),
         // core
         (
             "core/mod.rs",
-            include_str!("../../template/axum/internal/core/mod.tera"),
+            include_str!("../../template/axum/internal/core/mod.yiirs"),
         ),
         (
             "core/cache.rs",
-            include_str!("../../template/axum/internal/core/cache.tera"),
+            include_str!("../../template/axum/internal/core/cache.yiirs"),
         ),
         (
             "core/config.rs",
-            include_str!("../../template/axum/internal/core/config.tera"),
+            include_str!("../../template/axum/internal/core/config.yiirs"),
         ),
         (
             "core/db.rs",
-            include_str!("../../template/axum/internal/core/db.tera"),
+            include_str!("../../template/axum/internal/core/db.yiirs"),
         ),
         (
             "core/logger.rs",
-            include_str!("../../template/axum/internal/core/logger.tera"),
-        ),
-        (
-            "core/manager.rs",
-            include_str!("../../template/axum/internal/core/manager.tera"),
-        ),
-        // crypto
-        (
-            "crypto/mod.rs",
-            include_str!("../../template/axum/internal/crypto/mod.tera"),
-        ),
-        (
-            "crypto/aes.rs",
-            include_str!("../../template/axum/internal/crypto/aes.tera"),
-        ),
-        (
-            "crypto/hash.rs",
-            include_str!("../../template/axum/internal/crypto/hash.tera"),
+            include_str!("../../template/axum/internal/core/logger.yiirs"),
         ),
         // middleware
         (
             "middleware/mod.rs",
-            include_str!("../../template/axum/internal/middleware/mod.tera"),
+            include_str!("../../template/axum/internal/middleware/mod.yiirs"),
         ),
         (
             "middleware/catch_panic.rs",
-            include_str!("../../template/axum/internal/middleware/catch_panic.tera"),
+            include_str!("../../template/axum/internal/middleware/catch_panic.yiirs"),
         ),
         (
             "middleware/log.rs",
-            include_str!("../../template/axum/internal/middleware/log.tera"),
+            include_str!("../../template/axum/internal/middleware/log.yiirs"),
         ),
         (
             "middleware/trace.rs",
-            include_str!("../../template/axum/internal/middleware/trace.tera"),
+            include_str!("../../template/axum/internal/middleware/trace.yiirs"),
         ),
         // result
         (
             "result/mod.rs",
-            include_str!("../../template/axum/internal/result/mod.tera"),
+            include_str!("../../template/axum/internal/result/mod.yiirs"),
         ),
         (
             "result/code.rs",
-            include_str!("../../template/axum/internal/result/code.tera"),
+            include_str!("../../template/axum/internal/result/code.yiirs"),
         ),
         (
             "result/rejection.rs",
-            include_str!("../../template/axum/internal/result/rejection.tera"),
+            include_str!("../../template/axum/internal/result/rejection.yiirs"),
         ),
         (
             "result/reply.rs",
-            include_str!("../../template/axum/internal/result/reply.tera"),
+            include_str!("../../template/axum/internal/result/reply.yiirs"),
         ),
         // util
         (
             "util/mod.rs",
-            include_str!("../../template/axum/internal/util/mod.tera"),
+            include_str!("../../template/axum/internal/util/mod.yiirs"),
         ),
         (
             "util/helper.rs",
-            include_str!("../../template/axum/internal/util/helper.tera"),
+            include_str!("../../template/axum/internal/util/helper.yiirs"),
         ),
         (
             "util/identity.rs",
-            include_str!("../../template/axum/internal/util/identity.tera"),
-        ),
-        (
-            "util/mutex.rs",
-            include_str!("../../template/axum/internal/util/mutex.tera"),
-        ),
-        (
-            "util/xtime.rs",
-            include_str!("../../template/axum/internal/util/xtime.tera"),
+            include_str!("../../template/axum/internal/util/identity.yiirs"),
         ),
     ])
     .unwrap();
@@ -152,55 +133,58 @@ pub fn app() -> Tera {
     // 使用 include_str! 宏将模板文件嵌入到二进制文件中
     tera.add_raw_templates(vec![
         // main.rs
-        ("main.rs", include_str!("../../template/axum/app/main.tera")),
+        (
+            "main.rs",
+            include_str!("../../template/axum/app/main.yiirs"),
+        ),
         // api
         (
             "api/mod.rs",
-            include_str!("../../template/axum/app/api/mod.tera"),
+            include_str!("../../template/axum/app/api/mod.yiirs"),
         ),
         (
             "api/greeter.rs",
-            include_str!("../../template/axum/app/api/greeter.tera"),
+            include_str!("../../template/axum/app/api/greeter.yiirs"),
         ),
         // cmd
         (
             "cmd/mod.rs",
-            include_str!("../../template/axum/app/cmd/mod.tera"),
+            include_str!("../../template/axum/app/cmd/mod.yiirs"),
         ),
         (
             "cmd/hello.rs",
-            include_str!("../../template/axum/app/cmd/hello.tera"),
+            include_str!("../../template/axum/app/cmd/hello.yiirs"),
         ),
         (
             "cmd/serve.rs",
-            include_str!("../../template/axum/app/cmd/serve.tera"),
+            include_str!("../../template/axum/app/cmd/serve.yiirs"),
         ),
         // middleware
         (
             "middleware/mod.rs",
-            include_str!("../../template/axum/app/middleware/mod.tera"),
+            include_str!("../../template/axum/app/middleware/mod.yiirs"),
         ),
         (
             "middleware/auth.rs",
-            include_str!("../../template/axum/app/middleware/auth.tera"),
+            include_str!("../../template/axum/app/middleware/auth.yiirs"),
         ),
         // router
         (
             "router/mod.rs",
-            include_str!("../../template/axum/app/router/mod.tera"),
+            include_str!("../../template/axum/app/router/mod.yiirs"),
         ),
         (
             "router/route.rs",
-            include_str!("../../template/axum/app/router/route.tera"),
+            include_str!("../../template/axum/app/router/route.yiirs"),
         ),
         // service
         (
             "service/mod.rs",
-            include_str!("../../template/axum/app/service/mod.tera"),
+            include_str!("../../template/axum/app/service/mod.yiirs"),
         ),
         (
             "service/greeter.rs",
-            include_str!("../../template/axum/app/service/greeter.tera"),
+            include_str!("../../template/axum/app/service/greeter.yiirs"),
         ),
     ])
     .unwrap();

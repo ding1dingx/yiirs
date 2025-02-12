@@ -4,8 +4,7 @@ use tracing::Level;
 use tracing_appender::non_blocking::WorkerGuard;
 use tracing_subscriber::fmt::format::Writer;
 use tracing_subscriber::{self, fmt::time::FormatTime};
-
-use crate::util::xtime;
+use yiirs_contrib::xtime;
 
 // 格式化日志的输出时间格式
 struct LocalTimer;

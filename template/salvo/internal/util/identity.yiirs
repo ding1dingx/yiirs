@@ -3,11 +3,10 @@ use base64::{prelude::BASE64_STANDARD, Engine};
 use serde::{Deserialize, Serialize};
 use std::fmt;
 use std::fmt::Display;
+use yiirs_contrib::crypto::aes::CBC;
+use yiirs_contrib::xtime;
 
 use crate::core::config;
-use crate::crypto::aes::CBC;
-
-use super::xtime;
 
 pub const EXPIRE_SECONDS: i64 = 86400;
 

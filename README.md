@@ -8,7 +8,7 @@ Rust Web开发脚手架，支持 `salvo` 和 `axum` 框架，并同时支持创�
 ## 安装
 
 ```shell
-Cargo install yiirs
+cargo install yiirs
 ```
 
 ## 特点
@@ -20,9 +20,6 @@ Cargo install yiirs
 - 命令行使用 [clap](https://github.com/clap-rs/clap)
 - 异步运行时使用 [tokio](https://github.com/tokio-rs/tokio)
 - 参数验证器使用 [validator](https://github.com/Keats/validator)
-- 包含基础的登录授权功能
-- 包含基于 Redis 的分布式锁
-- 包含 AES、Hash、时间格式化 等实用封装
 - 包含 Trace、认证、请求日志、Panic捕获 中间价
 - 简单好用的 API Result 统一输出方式
 
@@ -97,3 +94,5 @@ yiirs app --name=foo --name=bar --axum # 创建axum应用
     │   │   └── main.rs
     └── internal
 ```
+
+**Enjoy 😊**

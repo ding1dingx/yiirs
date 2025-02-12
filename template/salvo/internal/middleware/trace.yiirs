@@ -2,8 +2,9 @@ use http::{header::AUTHORIZATION, HeaderName, HeaderValue};
 use nanoid::nanoid;
 use salvo::{async_trait, Depot, FlowCtrl, Handler, Request, Response};
 use tracing::Instrument;
+use yiirs_contrib::crypto::hash;
 
-use crate::{crypto::hash, util::identity::Identity};
+use crate::util::identity::Identity;
 
 pub const TRACE_ID: HeaderName = HeaderName::from_static("x-trace-id");
 

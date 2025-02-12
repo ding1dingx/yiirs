@@ -2,8 +2,9 @@ use axum::{extract::Request, http::HeaderValue, middleware::Next, response::Resp
 use http::{header::AUTHORIZATION, HeaderName};
 use nanoid::nanoid;
 use tracing::Instrument;
+use yiirs_contrib::crypto::hash;
 
-use crate::{crypto::hash, util::identity::Identity};
+use crate::util::identity::Identity;
 
 pub const TRACE_ID: HeaderName = HeaderName::from_static("x-trace-id");
 

@@ -1,12 +1,11 @@
 use config::Config;
 use std::{sync::OnceLock, time::Duration};
-
-use super::manager;
+use yiirs_contrib::manager::async_redis;
 
 pub type RedisPool = r2d2::Pool<redis::Client>;
-pub type RedisAsyncPool = bb8::Pool<manager::RedisAsyncConnManager>;
+pub type RedisAsyncPool = bb8::Pool<async_redis::AsyncConnManager>;
 pub type RedisClusterPool = r2d2::Pool<redis::cluster::ClusterClient>;
-pub type RedisClusterAsyncPool = bb8::Pool<manager::RedisClusterAsyncConnManager>;
+pub type RedisClusterAsyncPool = bb8::Pool<async_redis::ClusterAsyncConnManager>;
 
 static REDIS_POOL: OnceLock<RedisPool> = OnceLock::new();
 static REDIS_ASYNC_POOL: OnceLock<RedisAsyncPool> = OnceLock::new();
@@ -82,7 +81,7 @@ pub async fn new_redis(cfg: &Config, key: &str) -> anyhow::Result<(RedisPool, Re
         .connection_timeout(Duration::from_secs(conn_timeout as u64))
         .idle_timeout(Some(Duration::from_secs(idle_timeout as u64)))
         .max_lifetime(Some(Duration::from_secs(max_lifetime as u64)))
-        .build(manager::RedisAsyncConnManager::new(client))
+        .build(async_redis::AsyncConnManager::new(client))
         .await?;
 
     Ok((pool, async_pool))
@@ -125,7 +124,7 @@ pub async fn new_redis_cluster(
         .connection_timeout(Duration::from_secs(conn_timeout as u64))
         .idle_timeout(Some(Duration::from_secs(idle_timeout as u64)))
         .max_lifetime(Some(Duration::from_secs(max_lifetime as u64)))
-        .build(manager::RedisClusterAsyncConnManager::new(client))
+        .build(async_redis::ClusterAsyncConnManager::new(client))
         .await?;
 
     Ok((pool, async_pool))

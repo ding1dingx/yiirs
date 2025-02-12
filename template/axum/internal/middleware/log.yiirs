@@ -10,8 +10,9 @@ use axum::{
 use http_body_util::BodyExt;
 use hyper::HeaderMap;
 use serde_json::Value;
+use yiirs_contrib::xtime;
 
-use crate::{result::code::Code, util::xtime};
+use crate::result::code::Code;
 
 pub async fn handle(request: Request, next: Next) -> Response {
     let enter_time = xtime::now(None);
